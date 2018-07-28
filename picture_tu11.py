@@ -49,7 +49,4 @@ while iDate > eDate:
     j+=1
     iDate = iDate + datetime.timedelta(days = -1)
 
-    
-#root = 'C://pics//'
-#path = root + url.split('/')[-2]+'/'+ url.split('/')[-1]
-#print(path)
+ 
