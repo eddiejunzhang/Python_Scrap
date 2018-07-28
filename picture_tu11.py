@@ -12,14 +12,14 @@ import datetime
 import time
 
 sDate=datetime.datetime(2018,6,30)
-eDate=datetime.datetime(2018,6,28)
+eDate=datetime.datetime(2018,6,1)
 urla='http://img15.yixiu8.com:8080/picture/'
 root='C:/Users/tj863/tu11/'
 
 iDate=sDate
 while iDate > eDate:
     for i in range(40):
-        for j in range(50):
+        for j in range(90):
             path= iDate.strftime('%y%m%d') +'/pic'+str(i)+'/'+str(j)+'.jpg'
             rootb=root+iDate.strftime('%y%m%d') +'/'
             url = urla + path
@@ -35,9 +35,9 @@ while iDate > eDate:
                     if not os.path.exists(path):
                         with open(path,'wb') as f:
                             f.write(r.content)
-                            time.sleep(10)#如果爬得过快，对方会强迫关闭链接
                             f.close
                             print("文件成功保存")
+                            time.sleep(30)#如果爬得过快，对方会强迫关闭链接
                     else:
                         print('文件已经存在')
                 else:
@@ -48,5 +48,3 @@ while iDate > eDate:
     i+=1
     j+=1
     iDate = iDate + datetime.timedelta(days = -1)
-
- 
