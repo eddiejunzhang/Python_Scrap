@@ -14,7 +14,7 @@ import random
 
 sDate=datetime.datetime(2018,6,24)
 eDate=datetime.datetime(2018,6,1)
-urla='http://img15.yixiu8.com:8080/picture/'
+urla='http://img15.website.com:8080/picture/'
 root='C:/Users/DreamLife/tu11/'
 
 iDate=sDate
