@@ -10,16 +10,17 @@ import requests
 import os
 import datetime
 import time
+import random
 
-sDate=datetime.datetime(2018,6,30)
+sDate=datetime.datetime(2018,6,24)
 eDate=datetime.datetime(2018,6,1)
 urla='http://img15.yixiu8.com:8080/picture/'
-root='C:/Users/tj863/tu11/'
+root='C:/Users/DreamLife/tu11/'
 
 iDate=sDate
 while iDate > eDate:
-    for i in range(40):
-        for j in range(90):
+    for i in range(1,40):
+        for j in range(1,90):
             path= iDate.strftime('%y%m%d') +'/pic'+str(i)+'/'+str(j)+'.jpg'
             rootb=root+iDate.strftime('%y%m%d') +'/'
             url = urla + path
@@ -36,15 +37,16 @@ while iDate > eDate:
                         with open(path,'wb') as f:
                             f.write(r.content)
                             f.close
-                            print("文件成功保存")
-                            time.sleep(30)#如果爬得过快，对方会强迫关闭链接
+                            print("文件成功保存 No. "+str(i)+'-'+str(j))
+                            time.sleep(random.randint(15,25) )#如果爬得过快，对方会强迫关闭链接
                     else:
-                        print('文件已经存在')
+                        print('文件已经存在 No. '+str(i)+'-'+str(j))
                 else:
-                    print('图片不存在')
+                    print('图片不存在 No. '+str(i)+'-'+str(j))
             except FileNotFoundError as e:
                 print('爬取失败')
                 print(e)
     i+=1
     j+=1
     iDate = iDate + datetime.timedelta(days = -1)
+
