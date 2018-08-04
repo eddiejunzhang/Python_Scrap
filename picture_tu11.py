@@ -21,8 +21,9 @@ startFolder=3
 endFolder=40
 startPicture=19
 endPicture=190
-urla='http://img15.yixiu8.com:8080/picture/'
+urla='http://img15.website.com:8080/picture/'
 root='C:/Users/tj863/tu11/'
+#root=´ /home/pi/tu11´
 
 iDate=sDate
 while iDate > eDate:
