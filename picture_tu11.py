@@ -26,7 +26,10 @@ while iDate > eDate:
             url = urla + path
             path = root+path
             try:
-                r = requests.get(url)
+#                r = requests.get(url)
+# 骗过网站的反爬虫技术
+                kv={'User-Agent':'Mozillaz/5.0'}
+                r = requests.get(url,headers=kv)
                 if r.ok:
                     roota = path.rstrip(path.split('/')[-1])
                     if not os.path.exists(rootb):
