@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jul 26 13:29:41 2018
-从TU11网站上抓取图片
-2018-6-30以前的
+从TUPIAN网站上抓取图片.
 防止对方拒绝的方法：
 1 伪装自己的身份，user-agent=Mozillaz/5.0
 2 时间间隔拉长
@@ -15,15 +14,15 @@ import datetime
 import time
 import random
 
-sDate=datetime.datetime(2018,6,22)
+sDate=datetime.datetime(2018,6,30)
 eDate=datetime.datetime(2018,6,1)
-startFolder=3
-endFolder=40
-startPicture=19
-endPicture=190
-urla='http://img15.website.com:8080/picture/'
-root='C:/Users/tj863/tu11/'
-#root=´ /home/pi/tu11´
+startFolder = 1
+endFolder = 40
+startPicture = 1
+endPicture = 190
+urla = 'http://img15.website.com:8080/picture/'
+root = 'C:/Users/tj863/tu11/'
+#root = '/home/pi/tu11'
 
 iDate=sDate
 while iDate > eDate:
@@ -42,8 +41,8 @@ while iDate > eDate:
                     r = requests.get(url,headers=kv)
     #                r = requests.get(url)
                     if jcount == 0 :
-                        print('wait 20-40 sec...')
-                        time.sleep(random.randint(20,40) )#如果爬得过快，对方会强迫关闭链接
+                        print('wait 10-25 sec...')
+                        time.sleep(random.randint(10,25) )#如果爬得过快，对方会强迫关闭链接
                     if r.ok:
                         roota = path.rstrip(path.split('/')[-1])
                         if not os.path.exists(rootb):
