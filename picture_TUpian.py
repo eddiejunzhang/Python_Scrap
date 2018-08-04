@@ -41,8 +41,8 @@ while iDate > eDate:
                     r = requests.get(url,headers=kv)
     #                r = requests.get(url)
                     if jcount == 0 :
-                        print('wait 10-25 sec...')
-                        time.sleep(random.randint(10,25) )#如果爬得过快，对方会强迫关闭链接
+                        print('wait 2-5 sec...')
+                        time.sleep(random.randint(2,5) )#如果爬得过快，对方会强迫关闭链接
                     if r.ok:
                         roota = path.rstrip(path.split('/')[-1])
                         if not os.path.exists(rootb):
