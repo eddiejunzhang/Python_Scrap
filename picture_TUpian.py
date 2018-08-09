@@ -37,7 +37,7 @@ while iDate > eDate:
                 url = urla + path
                 path = root+path
                 # 如果文件不存在则执行以下爬取代码
-                if os.path.isfile(path):
+                if not os.path.isfile(path):
                     try:
                         kv={'user-agent':'Mozillaz/5.0'}
                         r = requests.get(url,headers=kv)
@@ -67,6 +67,8 @@ while iDate > eDate:
                     except FileNotFoundError as e:
                         print('爬取失败')
                         print(e)
+                else:
+                    print('图片已经下载过')
             else:
                 break
     
