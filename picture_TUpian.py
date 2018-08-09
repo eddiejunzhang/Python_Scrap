@@ -36,35 +36,37 @@ while iDate > eDate:
                 rootb=root+iDate.strftime('%y%m%d') +'/'
                 url = urla + path
                 path = root+path
-                try:
-                    kv={'user-agent':'Mozillaz/5.0'}
-                    r = requests.get(url,headers=kv)
-    #                r = requests.get(url)
-                    if jcount == 0 :
-                        print('wait 2-5 sec...')
-                        time.sleep(random.randint(2,5) )#如果爬得过快，对方会强迫关闭链接
-                    if r.ok:
-                        roota = path.rstrip(path.split('/')[-1])
-                        if not os.path.exists(rootb):
-                            os.mkdir(rootb)
-                        if not os.path.exists(roota):
-                            os.mkdir(roota)
-                        if not os.path.exists(path):
-                            with open(path,'wb') as f:
-                                f.write(r.content)
-                                f.close
-                                print("文件成功保存 No. "+str(i)+'-'+str(j))
+                # 如果文件不存在则执行以下爬取代码
+                if os.path.isfile(path):
+                    try:
+                        kv={'user-agent':'Mozillaz/5.0'}
+                        r = requests.get(url,headers=kv)
+        #                r = requests.get(url)
+                        if jcount == 0 :
+                            print('wait 2-5 sec...')
+                            time.sleep(random.randint(2,5) )#如果爬得过快，对方会强迫关闭链接
+                        if r.ok:
+                            roota = path.rstrip(path.split('/')[-1])
+                            if not os.path.exists(rootb):
+                                os.mkdir(rootb)
+                            if not os.path.exists(roota):
+                                os.mkdir(roota)
+                            if not os.path.exists(path):
+                                with open(path,'wb') as f:
+                                    f.write(r.content)
+                                    f.close
+                                    print("文件成功保存 No. "+str(i)+'-'+str(j))
+                                    jcount = 0
+        #                            time.sleep(random.randint(30,59) )#如果爬得过快，对方会强迫关闭链接
+                            else:
                                 jcount = 0
-    #                            time.sleep(random.randint(30,59) )#如果爬得过快，对方会强迫关闭链接
+                                print('文件已经存在 No. '+str(i)+'-'+str(j)+' jcount= '+str(jcount))
                         else:
-                            jcount = 0
-                            print('文件已经存在 No. '+str(i)+'-'+str(j)+' jcount= '+str(jcount))
-                    else:
-                        jcount += 1
-                        print('图片不存在 No. '+str(i)+'-'+str(j)+' jcount= '+str(jcount))
-                except FileNotFoundError as e:
-                    print('爬取失败')
-                    print(e)
+                            jcount += 1
+                            print('图片不存在 No. '+str(i)+'-'+str(j)+' jcount= '+str(jcount))
+                    except FileNotFoundError as e:
+                        print('爬取失败')
+                        print(e)
             else:
                 break
     
