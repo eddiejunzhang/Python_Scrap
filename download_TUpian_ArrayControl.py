@@ -21,25 +21,25 @@ startFolder=1
 endFolder=10
 startPicture=1
 endPicture=10
-pre_url='http://img15.yixiu8.com:8080/picture/'
-pre_root='C:/Users/tj863/tu11/'
-#pre_root = '/home/pi/tu11/'
+pre_url='http://img15.pictures.com:8080/picture/'
+pre_root='C:/Users/user/tu_p1c/'
+#pre_root = '/home/pi/tu_pic/'
 
 array_full=[]
 
 iDate=sDate
 while iDate > eDate:
     # i是pic目录的序号
-    for i in range(startFolder,endFolder):
-        for j in range(startPicture,endPicture):
-            path= iDate.strftime('%y%m%d') +'/pic'+str(i)+'/'+str(j)+'.jpg'
-            download_path=pre_url + path
+    for i in range(startFolder, endFolder):
+        for j in range(startPicture, endPicture):
+            path = iDate.strftime('%y%m%d') + '/pic' + str(i) + '/' + str(j)+'.jpg'
+            download_path = pre_url + path
             save_path = pre_root + path
-            save_path_date = pre_root+iDate.strftime('%y%m%d') +'/'
+            save_path_date = pre_root+iDate.strftime('%y%m%d') + '/'
             save_path_pic = save_path.rstrip(save_path.split('/')[-1])
             a=random.randint(0,len(array_full))
-            print(iDate.strftime('%y%m%d') +' '+ str(i)+' ' +str(j))
-            array_full.insert(a,[download_path,save_path,save_path_date,save_path_pic])
+            print(iDate.strftime('%y%m%d') + ' ' + str(i) + ' ' +str(j))
+            array_full.insert(a,[download_path, save_path, save_path_date, save_path_pic])
     iDate = iDate + datetime.timedelta(days = -1)
     
 for i in range(len(array_full)):
