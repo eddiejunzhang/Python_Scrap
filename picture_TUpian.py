@@ -56,19 +56,22 @@ while iDate > eDate:
                                     f.write(r.content)
                                     f.close
                                     print("文件成功保存 No. "+str(i)+'-'+str(j))
+                                    print("文件成功保存 " + path)
                                     jcount = 0
         #                            time.sleep(random.randint(30,59) )#如果爬得过快，对方会强迫关闭链接
                             else:
                                 jcount = 0
                                 print('文件已经存在 No. '+str(i)+'-'+str(j)+' jcount= '+str(jcount))
+                                print('文件已经存在 ' + path)
                         else:
                             jcount += 1
                             print('图片不存在 No. '+str(i)+'-'+str(j)+' jcount= '+str(jcount))
+                            print('图片不存在 ' + path)
                     except FileNotFoundError as e:
                         print('爬取失败')
                         print(e)
                 else:
-                    print('图片已经下载过')
+                    print('图片已经下载过 ' + path)
             else:
                 break
     
