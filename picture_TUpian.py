@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jul 26 13:29:41 2018
-从TUPIAN网站上抓取图片.
+从TUPIAN网站上抓取图片. 典型URL是:
+http://img15.website.com:8080/picture/140809/pic17/1.jpg
 防止对方拒绝的方法：
 1 伪装自己的身份，user-agent=Mozillaz/5.0
 2 时间间隔拉长
