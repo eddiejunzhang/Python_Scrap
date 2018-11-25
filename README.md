@@ -3,6 +3,6 @@
 
 This code is also able to run in RaspberryPi with Python3.
 
-Anaconda installed on Win7 OS.
+This branch is for linux.  Use following command to enable this branch after download.
 
-Run the code within Spyder.
+$git checkout linux
