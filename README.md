@@ -5,4 +5,6 @@ This code is also able to run in RaspberryPi with Python3.
 
 This branch is for linux.  Use following command to enable this branch after download.
 
+```bash
 $git checkout linux
+```
