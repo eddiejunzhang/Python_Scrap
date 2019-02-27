@@ -22,8 +22,8 @@ endFolder = 40
 startPicture = 1
 endPicture = 190
 urla = 'http://img15.website.com:8080/picture/'
-root = 'C:/Users/tj863/tu11/'
-#root = '/home/pi/tu11/'
+root = 'C:/Users/tj863/folder/'
+#root = '/home/pi/folder/'
 
 iDate=sDate
 while iDate > eDate:
@@ -40,8 +40,12 @@ while iDate > eDate:
                 # 如果文件不存在则执行以下爬取代码
                 if not os.path.isfile(path):
                     try:
-                        kv={'user-agent':'Mozillaz/5.0'}
-                        r = requests.get(url,headers=kv)
+                        #kv={'user-agent':'Mozillaz/5.0'}
+                        #r = requests.get(url,headers=kv)
+                        #反防盗链
+                        headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+                        'Referer': 'http://www..com/', }
+                        r = requests.get(url,headers = headers)
         #                r = requests.get(url)
                         if jcount == 0 :
                             print('wait 2-5 sec...')
